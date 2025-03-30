@@ -2255,12 +2255,12 @@ local function config_time( hour, minutes, seconds, mili )
 		We need to check if we have a custom time format and unit, 
 		if unit is higher than 100 then we need to format the time string accordingly.
 	]]
-	if hour_unit ~= nil then
+	if (hour_unit ~= nil and format_hour ~= "") then
 		if hour_unit >= 100 then
 			format_hour = ":%03d"
 		end
 	end
-	if minute_unit ~= nil then
+	if (minute_unit ~= nil and format_minutes ~= "") then
 		if minute_unit >= 100 then
 			format_minutes = ":%03d"
 		end
