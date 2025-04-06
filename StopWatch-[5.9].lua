@@ -2874,8 +2874,8 @@ end
 	returns:		string
 ----------------------------------------------------------------------------------------------------------------------------------------
 ]]
-function removeInstrucitons( str )
-    debug_log( 'removeInstrucitons(' .. pre_dump( str ) .. ') -- function variable names: str' )
+function removeInstructions( str )
+    debug_log( 'removeInstructions(' .. pre_dump( str ) .. ') -- function variable names: str' )
 	local result = string.gsub(str, "{%$([%u])%d*}", "%$%1")
 	return result
 end
@@ -3202,7 +3202,7 @@ local function show_split( props, settings )
 	local shw = false;
 	shw = ( layout_value == 2 and mode == 2 and in_table( {1, 2}, timer_format ) );
 	if ( timer_format == 5 and layout_value == 2 and mode == 2 ) then
-		if ( string.find( removeInstrucitons(custom_time_format), "$F" ) ~= nil ) then
+		if ( string.find( removeInstructions(custom_time_format), "$F" ) ~= nil ) then
 			shw = true;
 		else
 			shw = false;
@@ -4596,7 +4596,7 @@ local function set_time_text( source_name )
 	]]
 	
 	if timer_format == 5 then
-		text = format_time( ( l_time ~= 0 ) and string.format( "%s:%s", l_time, t_time ) or string.format( "%s", t_time ), removeInstrucitons(custom_time_format) );
+		text = format_time( ( l_time ~= 0 ) and string.format( "%s:%s", l_time, t_time ) or string.format( "%s", t_time ), removeInstructions(custom_time_format) );
 	end	
 	
 	if timer_mode ~= 2 then
